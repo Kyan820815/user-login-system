@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "/tcp";
+
+package tcp;
+
+service TCPRPC {
+    rpc HelloCaller (HelloMsg) returns (OK) {}
+    rpc LoginCaller (UserMsg) returns (UserMsg) {}
+    rpc NicknameCaller (UserMsg) returns (OK) {}
+    rpc PhotoCaller (UserMsg) returns (OK) {}
+}
+
+message HelloMsg {
+    string greeting = 1;
+}
+
+message OK {
+    bool ok = 1;
+    string reason = 2;
+}
+
+message UserMsg {
+    string acc = 1;
+    string pwd = 2;
+    string nickname = 3;
+    string photo = 4;   
+    int32 userid = 5; 
+}

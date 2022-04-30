@@ -1,0 +1,19 @@
+<h1>Hi {{.Acc}}!</h1>
+
+<img src="{{.Photo}}" width="250" height="250">
+
+<form action="/nickname/{{.Acc}}" method="POST">
+    <div>
+        <label for="nickname">nickname</label>
+        <textarea name="nickname" rows="1" cols="10">{{printf "%s" .Nickname}}</textarea>
+        <input type="submit" value="Update">
+    </div>
+</form>
+
+<form action="/photo/{{.Acc}}" enctype="multipart/form-data" method="POST">
+    <div>
+        <input type="file" id="img" name="photo" accept="image/*">
+        <input type="submit" value="Upload">
+    </div>
+</form>
+
